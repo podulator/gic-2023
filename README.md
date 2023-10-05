@@ -54,8 +54,7 @@ You will need your AWS credentials set up, and the default region etc to be set,
 ### Setting up the headers in Cloudfront
 As with the local testing, you need to set up the reqired headers for the Godot 4 use of Shared Byte Arrays. In Cloudfront this is done on the **Behaviour**.
 
-![CloudFront Behaviour Headers]("support/behaviour-headers.png" "Headers")
-
+![CloudFront Behaviour Headers](support/behaviour-headers.png)
 
 # Setting up Stable Diffusion, Control Net and Automatic111 Web UI
 
