@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh2na2l3qky5b"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_uiqm4"]
+[ext_resource type="AudioStream" uid="uid://c8git17uaa5ns" path="res://sounds/titles.wav" id="2_u3ldk"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_uiqm4")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 576.0
+offset_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="PanelTitle" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelTitle"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer/PanelTitle/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_type_variation = &"HeaderLarge"
+text = "Gen AI Platformer"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="PanelProgress" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelProgress"]
+custom_minimum_size = Vector2(0, 57)
+layout_mode = 2
+
+[node name="Panel" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelProgress/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Loading" type="Label" parent="CenterContainer/VBoxContainer/PanelProgress/VBoxContainer/Panel"]
+layout_mode = 2
+text = "Loading..."
+horizontal_alignment = 1
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 1
+max_lines_visible = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBoxContainer/PanelProgress/VBoxContainer/Panel"]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="PanelButtons" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelButtons"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2"]
+layout_mode = 2
+text = "Start"
+
+[node name="FullscreenButton" type="Button" parent="CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2"]
+layout_mode = 2
+text = "Toggle Fullscreen"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2"]
+layout_mode = 2
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u3ldk")
+volume_db = 2.0
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

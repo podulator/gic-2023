@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdyp538fqygcq"]
+
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_p024t"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_p024t")
+
+[node name="TilesLabel" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 36.0
+text = "Tiles : Off"
+
+[node name="ThemeLabel" type="Label" parent="."]
+offset_left = 108.0
+offset_top = 10.0
+offset_right = 444.0
+offset_bottom = 36.0
+text = "Theme"

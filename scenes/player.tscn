@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://cboi8hec4yf0c"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_4570s"]
+[ext_resource type="Texture2D" uid="uid://b7brwjc5w2s4o" path="res://images/monochrome_tilemap_transparent.png" id="2_7e34i"]
+[ext_resource type="AudioStream" uid="uid://bwkldmy87gn66" path="res://sounds/jump.wav" id="3_0yyf5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usmjv"]
+atlas = ExtResource("2_7e34i")
+region = Rect2(0, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erdcl"]
+atlas = ExtResource("2_7e34i")
+region = Rect2(68, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wma1"]
+atlas = ExtResource("2_7e34i")
+region = Rect2(17, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4kit"]
+atlas = ExtResource("2_7e34i")
+region = Rect2(34, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnsu8"]
+atlas = ExtResource("2_7e34i")
+region = Rect2(51, 204, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yexds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usmjv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erdcl")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wma1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4kit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnsu8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eynex"]
+radius = 3.0
+height = 8.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4570s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1360
+limit_bottom = 496
+position_smoothing_speed = 1.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_yexds")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_eynex")
+
+[node name="JumpSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0yyf5")
+volume_db = -10.0
+bus = &"FX"

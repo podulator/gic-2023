@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://xkwm3vbtb61g"]
+
+[ext_resource type="Script" path="res://scenes/demo_level.gd" id="1_grh1v"]
+[ext_resource type="PackedScene" uid="uid://bdyp538fqygcq" path="res://scenes/hud.tscn" id="2_jexkb"]
+[ext_resource type="PackedScene" uid="uid://b2u2anrp0wse7" path="res://scenes/TileMapLevel1.tscn" id="3_mwcbc"]
+[ext_resource type="PackedScene" uid="uid://cboi8hec4yf0c" path="res://scenes/player.tscn" id="4_f4ayf"]
+[ext_resource type="PackedScene" uid="uid://clikcsot5ncta" path="res://scenes/door.tscn" id="5_sdjld"]
+[ext_resource type="AudioStream" uid="uid://c8m6anq1qabtv" path="res://sounds/teleport.wav" id="6_sq450"]
+[ext_resource type="AudioStream" uid="uid://c7gxfwubcv2d8" path="res://sounds/hi-scores.wav" id="7_dxbvp"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="8_dv1pd"]
+
+[node name="DemoLevel" type="Node2D"]
+script = ExtResource("1_grh1v")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1360.0
+offset_bottom = 496.0
+
+[node name="HUD" parent="." instance=ExtResource("2_jexkb")]
+
+[node name="TileMapLevel1" parent="." instance=ExtResource("3_mwcbc")]
+
+[node name="Player" parent="." instance=ExtResource("4_f4ayf")]
+position = Vector2(50, 130)
+
+[node name="Door" parent="." instance=ExtResource("5_sdjld")]
+position = Vector2(1314, 456)
+
+[node name="ASPTeleport" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_sq450")
+bus = &"FX"
+
+[node name="ASPMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dxbvp")
+
+[node name="Touch" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Test" type="Node2D" parent="Touch"]
+
+[node name="UI" type="CanvasLayer" parent="Touch/Test"]
+
+[node name="Virtual joystick left" parent="Touch/Test/UI" instance=ExtResource("8_dv1pd")]
+offset_left = 361.0
+offset_top = -320.0
+offset_right = 587.0
+offset_bottom = -110.0
+visibility_mode = 1
+
+[connection signal="player_entered" from="Door" to="." method="_on_door_player_entered"]
+[connection signal="jump" from="Touch/Test/UI/Virtual joystick left" to="Player" method="jump"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ijm2402jiebd"]
+
+[ext_resource type="Script" path="res://scenes/Renderer.gd" id="1_q4bpt"]
+
+[node name="Renderer" type="Node2D"]
+script = ExtResource("1_q4bpt")
