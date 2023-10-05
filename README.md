@@ -14,11 +14,24 @@ Using ControlNet , we can pre process it, extracting edge features with the pre-
 
 Finally, we bring this together to create our Pixel Perfect level art from themes driven by a prompt.
 
+### Some examples are :
+
+#### Aliens
 ![Example 1](gen/aliens/image-3.png)
+
+#### Cyberpunk
 ![Example 2](gen/cyberpunk/00101-3110286413.png)
+
+#### Desert
 ![Example 3](gen/desert/00083-938519070.png)
+
+#### Jungle
 ![Example 4](gen/jungle/image-3.png)
+
+#### Meat world
 ![Example 3](gen/meat/image-5.png)
+
+#### Skin world
 ![Example 3](gen/skin/image.png)
 
 ## How to
@@ -93,5 +106,12 @@ There is a final helper script to configure a Ubuntu 20.04 g5.2xlarge EC2 instan
 
 It can be found at : `support/install-ec2.sh`.
 
-It should be passed in as a User Data Launch script,m or run via system manager or so.
+It should be passed in as a User Data Launch script, or run via system manager as the `ubuntu` user.
 
+### It installs
+
+- Nvidia drivers with CUDA
+- Automatic111 web ui
+- Stable Diffusion 1.4
+- ControlNet 1.1
+- All dependencies for the above
