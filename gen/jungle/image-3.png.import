@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4uyprk0vw5xd"
-path="res://.godot/imported/image (3).png-5e0cc2ddf121581cd22906ddb6773f52.ctex"
+uid="uid://cq42n2rmrub31"
+path="res://.godot/imported/image-3.png-447857db8f56022ceeade136b6f8ba6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gen/aliens/image (3).png"
-dest_files=["res://.godot/imported/image (3).png-5e0cc2ddf121581cd22906ddb6773f52.ctex"]
+source_file="res://gen/jungle/image-3.png"
+dest_files=["res://.godot/imported/image-3.png-447857db8f56022ceeade136b6f8ba6d.ctex"]
 
 [params]
 
