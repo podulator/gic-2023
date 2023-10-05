@@ -21,6 +21,11 @@ Finally, we bring this together to create our Pixel Perfect level art from theme
 ![Example 3](gen/meat/image-5.png)
 ![Example 3](gen/skin/image.png)
 
+## How to
+
+The talk covers the details, and is linked ![here](support/talk.pdf).
+
+
 ## Content and credits
 
 - Music is a GoatTracker SID tune by me
