@@ -14,11 +14,11 @@ Using ControlNet , we can pre process it, extracting edge features with the pre-
 
 Finally, we bring this together to create our Pixel Perfect level art from themes driven by a prompt.
 
-![Example 1](gen/aliens/image \(3\).png)
+![Example 1](gen/aliens/image %283%29).png)
 ![Example 2](gen/cyberpunk/00101-3110286413.png)
 ![Example 3](gen/desert/00083-938519070.png)
-![Example 4](gen/jungle/image \(3\).png)
-![Example 3](gen/meat/image \(5\).png)
+![Example 4](gen/jungle/image %283%29.png)
+![Example 3](gen/meat/image %285%29.png)
 ![Example 3](gen/skin/image.png)
 
 ## Content and credits
