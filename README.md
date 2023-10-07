@@ -45,7 +45,7 @@ The talk covers the details, and is linked ![here](support/talk.pdf).
 - Sprites are from [1-Bit Platformer Pack by Kenney](https://kenney.nl/assets/1-bit-platformer-pack) (CC0)
 - Sound Effects were made using [jsfxr](https://sfxr.me/)
 - Code started off from [Brett Chalupa's 2D Platformer Template ](https://github.com/brettchalupa/godot_2d_platformer)
-
+- Virtual Joystick for Godot 4 by Marco Fazio, via Godot 4 AssetLib
 
 # Godot 4 Project
 
