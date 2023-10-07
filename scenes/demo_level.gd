@@ -4,11 +4,11 @@ func _on_teleport_end():
 	$ASPMusic.play()
 
 func _ready():
-
 	initialize_theme()
 	set_random_tile_colour()
 	$TileMapLevel1.can_climb.connect(_player_can_climb)
 	$TileMapLevel1.visible = false
+	$Player.set_bounds($TileMapLevel1.get_bounds())
 	$ASPTeleport.finished.connect(_on_teleport_end)
 	$ASPTeleport.play()
 

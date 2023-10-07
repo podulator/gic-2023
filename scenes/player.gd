@@ -12,6 +12,10 @@ var can_climb : bool :
 	set(value):
 		_can_climb = value
 
+var _bounds = Rect2i(0, 0, 0, 0)
+func set_bounds(extent : Rect2i):
+	self._bounds = extent
+
 func set_color(color : Color):
 	self.modulate = color
 
@@ -53,11 +57,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func bounds():
-	if self.position.x <= 2:
-		self.position.x = 3
+	if self.position.x <= self._bounds.position.x:
+		self.position.x = self._bounds.position.x + 1
 		if self.velocity.x < 0:
 			self.velocity.x = 0
-	elif self.position.x >= 1330:
-		self.position.x = 1329
+	elif self.position.x >= self._bounds.size.x:
+		self.position.x = self._bounds.size.x -1
 		if self.velocity.x > 0:
 			self.velocity.x = 0
