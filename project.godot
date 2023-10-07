@@ -32,7 +32,7 @@ window/stretch/mode="viewport"
 
 [editor]
 
-run/main_run_args="-- --rendersss --theme=gic"
+run/main_run_args="-- --renders --themes=gic"
 
 [input]
 
