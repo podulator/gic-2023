@@ -5,7 +5,8 @@ extends Node2D
 @onready var _start = $CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2/StartButton
 @onready var _quit = $CenterContainer/VBoxContainer/PanelButtons/VBoxContainer2/QuitButton
 var _loaded : bool
-var _scene
+var _scene : Resource
+var _root : String = "res://gen"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +24,7 @@ func _ready():
 	$AudioStreamPlayer.play()
 	if len(Global._themes) == 0:
 		randomize()
-		var root = "res://gen"
+		var root = self._root
 		var args = OS.get_cmdline_user_args()
 		for arg in args:
 			if arg.find("=") > -1:
@@ -106,6 +107,9 @@ func load_themes(path):
 		await get_tree().create_timer(0.05).timeout
 		counter = counter + 1
 		Global._themes.append( MyTheme.load_theme(image_path) )
+
+	if counter == 0 and path != self._root:
+		load_themes(self._root)
 
 	_pb.visible = false
 	_msg.text = "Loading complete"
