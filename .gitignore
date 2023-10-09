@@ -3,4 +3,4 @@ builds/**
 exports/**
 .godot/**
 **.pdf
-**/*.png.import
+*.png.import
